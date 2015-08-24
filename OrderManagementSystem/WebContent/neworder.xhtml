@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>OMS Application</title>
+</h:head>
+<h:body>
+	<h1>Create New Order</h1>
+	<br />
+	<h3>Persons List</h3>
+		<table class="tg" border="1">
+			<tr>
+				<th width="80">Stock Id</th>
+				<th width="120">Item Count</th>
+				<th width="120">Product Id</th>
+				<th width="120">ProductName</th>
+				<th width="120">ProductUnitType</th>
+				<th width="120">ProductCode</th>
+				<th width="120">ProductCategory</th>
+			</tr>
+			
+			
+			<ui:repeat value="${orderController.getStockProducts()}" var="stockProduct">
+				<tr>
+					<td>${stockProduct.stockProductId}</td>
+					<td>${stockProduct.itemCount}</td>
+					<td>${stockProduct.product.productId}</td>
+					<td>${stockProduct.product.name}</td>
+					<td>${stockProduct.product.unitType}</td>
+					<td>${stockProduct.product.code}</td>
+					<td>${stockProduct.product.category}</td>
+				</tr>
+			</ui:repeat>
+		</table>
+</h:body>
+</html>
